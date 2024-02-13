@@ -38,7 +38,7 @@ class wtmd_simulation {
                 exit(1);
             }
 
-            // Read simulation parameters from the input file and allocate temporary host memory for fields
+            // Read simulation parameters from the input file
             P_ = new lfts_params(inputFile);
             P_->outputParameters();
             M_=P_->M();
