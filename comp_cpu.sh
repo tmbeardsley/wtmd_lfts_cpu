@@ -1,4 +1,5 @@
 #!/bin/bash
 #$ -cwd
 
-g++ -O2 -std=c++14 -lgsl -lgslcblas -lfftw3 fts_cpu.cc -o fts_cpu
+mkdir build
+g++ -O2 -std=c++14 ./src/wtmd_lfts_cpu.cc -o ./build/wtmd-lfts-cpu -lfftw3 -lgsl -lgslcblas -lm
