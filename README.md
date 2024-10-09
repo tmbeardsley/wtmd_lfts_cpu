@@ -11,14 +11,14 @@ Two methods of compiling the program are available:<br>
 <ol>
   <li><b>comp.sh</b>
     <br>
-    A simple bash script to create a 'build' directory containing the compiled program code: lfts-cpu.<br><br>
+    A simple bash script to create a 'build' directory containing the compiled program code: wtmd-lfts-cpu.<br><br>
     On a Linux system, run the bash script from the top directory via:<br>
     <b>sh comp.sh</b>
     <br><br>
   </li>
   <li><b>CMake</b>
     <br>
-    CMakeLists.txt specifies the required commands for CMake to create (and run) Makefiles, which create a 'build' directory and compile the program code as: lfts-cpu.<br><br>
+    CMakeLists.txt specifies the required commands for CMake to create (and run) Makefiles, which create a 'build' directory and compile the program code as: wtmd-lfts-cpu.<br><br>
     From the top directory, run: <br>
     <b>cmake -B build</b><br>
     <b>cmake --build build</b>
@@ -38,7 +38,7 @@ The input_files directory contains example input files that can be supplied to t
 #### File Format
 Line 1: <em>N NA XN C Ndt isXeN</em><br>
 Line 2: <em>mx my mz Lx Ly Lz</em><br>
-Line 3: <em>n_eq n_st n_smpl loadType</em><br>
+Line 3: <em>n_eq n_st n_smpl save_freq loadType</em><br>
 Lines 4->(M+3): W-(r)<br>
 Lines (M+4)->(2M+3): w+(r)<br>
 
@@ -56,6 +56,7 @@ Note: A real-space position r = (x,y,z) corresponds to a mesh point position r_m
 <em>n_eq</em> is the number of langevin steps performed to equilibrate the system (integer).<br>
 <em>n_st</em> is the number of langevin steps performed after equilibration has ended, during which statistics are sampled (integer).<br>
 <em>n_smpl</em> is the number of steps between samples being taken in the statistics period (integer).<br>
+<em>save_freq</em> is the number of steps between saving outputs to file.<br>
 <em>loadType</em> instructs the program whether to load the W-(r) and w+(r) fields from the proceeding file lines (loadType=1), start from a disordered state (loadType=0) or start from a (300) lamellar phase (loadType=2).<br><br>
 M = (mx\*my\*mz) is the total number of mesh points, such that the proceeding 2*M lines of the file can hold W-(r) and w+(r) fields to load.<br>
 
